@@ -3,47 +3,55 @@
 
 ## ng-app
 
-- 告诉angular启动项目
+- 定义angular应用，告诉angular启动项目（也叫模块）
 - 添加根作用域$rootScope
 > 一般ng-app放到html标签上，用来定义angular应用程序，当网页加载完毕，AngularJS 自动开启。而且放到html元素上，也可以操作head标签里的内容。
 
-> - 指令 ng-开头的都叫angular的内置指令
+> - 指令， ng-开头的都叫angular的内置指令,可以使用 data-ng- 来让网页对 HTML5 有效。
 > - 增加ng-app属性后 会增加一个 根作用域$rootScope
 ```
 var app = angular.module('zfModule', []);
 ``` 
 > var app = angular.module('zfModule', []);用来声明一个angular模块。
 > - 第一个参数是和html中ng-app的值相对应的。
+> - 在模块定义中 [] 参数用于定义模块的依赖关系。中括号[]表示该模块没有依赖，如果有依赖的话会在中括号写上依赖的模块名字。
 > - 模块除了可以加载其他依赖模块，亦可以创建配置、控制器、服务、指令、测试之类的
 
 
 ## ng-model
-
-- 实现双向数据绑定的(表单元素，html5元素的contenteditable不起作用，必须是表单元素)
+- 把元素值（比如输入域的值）绑定到应用程序
+- 实现双向数据绑定的，修改表单的值，变量的值也跟着改变，反之亦然
+- html5元素的contenteditable不起作用，必须是表单元素
 
 ```
-
 <input type="text" ng-model="name"/>
 
 ```
 
-1.先去当前作用域上找name，如果有会将name变量的值赋予给输入框
+1. 先去当前作用域上找name，如果有会将name变量的值赋予给输入框(**ng-model只能放置变量名**)
 
-2.如果没有，当我们在输入框中输入内容，会在当前作用域下声明这个name变量
+2. 如果没有，当我们在输入框中输入内容，会在当前作用域下声明这个name变量
 
-3.修改输入框中的内容 会导致数据的更新
+3. 修改输入框中的内容 会导致数据的更新
+4. 在视图中(html)直接
+>- ng-model 指令根据表单域的状态添加/移除以下类：
+  1. ng-empty
+  2. ng-not-empty
+  3. ng-touched
+  4. ng-untouched
+  5. ng-valid
+  6. ng-invalid
+  7. ng-dirty
+  8. ng-pending
+  9. ng-pristine
 
 
-> ng-model只能放置变量名
-
-
-## ng-bind简写{{}}
-
+## ng-bind（表达式），简写{{}}
+- angular表达式也js表达式一样。
 - 将作用域上的数据展示到页面上（展示）
-
 - 数据的变化可以影响视图，视图(表单元素)不能影响数据
-
 - 支持赋值，运算，三元表达式
+- 不支持条件判断，循环及异常。
 
 
 ## ng-cloak
