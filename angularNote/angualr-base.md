@@ -72,10 +72,14 @@ var app = angular.module('zfModule', []);
 
 
 ## 创建模块
+- 模块定义了一个应用程序,
+- 模块是应用程序中不同部分的容器。
+- 模块是应用控制器的容器。
+- 控制器通常属于一个模块。
 
 ```
 
-ng-app="appModule"
+<html ng-app="appModule">
 
 var app = angular.module('appModule',[]);
 
@@ -86,11 +90,21 @@ var app = angular.module('appModule',[]);
 - 买一送一 ,会赠送一个作用域$scope
 - 控制器默认是不会执行的
 - 声明根作用域(全局)属性在run方法中声明
+- AngularJS 模块让所有函数的作用域在该模块下，避免函数被覆盖，实现了模块化
 ```
     app.run(function ($rootScope) {
         $rootScope.aa = 100;
 
     });
+```
+## run方法
+
+- 声明全局属性
+
+```
+
+app.run(function($rootScope){})
+
 ```
 
 ## 创建控制器
@@ -118,15 +132,7 @@ app.controller('myCtrl',function($scope){});//与html对应
 ```
 
 
-## run方法
 
-- 声明全局属性
-
-```
-
-app.run(function($rootScope){})
-
-```
 
 
 ## ng-repeat(最最常用的指令)
