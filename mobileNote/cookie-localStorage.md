@@ -22,11 +22,11 @@
 - session
 - 文件存储(例如我们做的CRM)
 - 数据库存储
-+ mongodb （node）
-+ Access (微软办公软件自带的)--非常轻量级的
-+ mySql
-+ SQL server
-+ Oracle
+    +  mongodb （node）
+    + Access (微软办公软件自带的)--非常轻量级的
+    + mySql
+    + SQL server
+    + Oracle
 
 ###cookie 和 localStorage
 > cookie 和 localStorage都是本地存储经常用的方式，他们之间的区别如下：
